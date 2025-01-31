@@ -1,0 +1,56 @@
+/* Navbar.css */
+.navbar {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between title and links */
+    align-items: center; /* Center items vertically */
+    background: linear-gradient(135deg, #FF5B00, #000000); /* KTM-inspired gradient */
+    padding: 15px 30px; /* Increased padding for better spacing */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    position: fixed; /* Fix the navbar to the top */
+    top: 0; /* Align it to the top of the viewport */
+    left: 0; /* Align it to the left side */
+    right: 0; /* Align it to the right side */
+    z-index: 1000; /* Ensure it is above other content */
+  }
+  
+  /* Add this rule to prevent content from being hidden behind the navbar */
+  body {
+    padding-top: 75px; /* Adjust based on your navbar height */
+  }
+  
+  .navbar-title {
+    color: #FFFFFF; /* Title color */
+    font-size: 32px; /* Increased font size for the title */
+    margin: 0; /* Remove default margin */
+    font-weight: bold; /* Bold title for emphasis */
+    font-family: 'Bebas Neue', sans-serif; /* Apply KTM-like font */
+  }
+  
+  .navbar-links {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Flex display for horizontal layout */
+    gap: 30px; /* Increased space between links */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .nav-link {
+    color: #FFFFFF; /* White text for links */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 20px; /* Padding around links */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    font-family: 'Bebas Neue', sans-serif; /* Apply KTM-like font to links */
+    font-size: 20px; /* Increased font size for links */
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light overlay on hover */
+    color: #FF5B00; /* Change text color to KTM orange on hover */
+  }
+  
+  .active {
+    font-weight: bold; /* Bold text for active link */
+    border-bottom: 3px solid #FF5B00; /* Underline active link with KTM orange */
+  }
+  
