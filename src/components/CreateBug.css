@@ -1,73 +1,67 @@
-/* General Styles */
 body {
-    background-color: #F7F7F7; /* Light background for contrast */
-    font-family: 'Bebas Neue', sans-serif; /* KTM Duke style font */
+    background-color: #F7F7F7;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Form Container */
 form {
-    max-width: 600px; /* Center the form */
-    margin: 20px auto; /* Margin for centering */
-    padding: 20px; /* Padding around form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    background-color: #FFFFFF; /* White background for form */
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
 }
 
-/* Headings */
 h1 {
-    text-align: center; /* Centered heading */
-    color: #FF3D00; /* KTM Orange */
-    margin-bottom: 20px; /* Space below heading */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    text-align: center;
+    color: #FF3D00;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Form Groups */
 .form-group {
-    margin-bottom: 15px; /* Space between form groups */
-    position: relative; /* For absolute positioning of labels */
+    margin-bottom: 15px;
+    position: relative;
 }
 
-/* Labels */
 label {
-    display: block; /* Block for full width */
-    font-size: 1.2em; /* Increased font size */
-    margin-bottom: 8px; /* Space below labels */
-    color: #333; /* Dark color for labels */
-    transition: transform 0.3s ease, font-size 0.3s ease; /* Animation for labels */
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: #333;
+    transition: transform 0.3s ease, font-size 0.3s ease;
 }
 
-/* Input Fields, Textareas, and Selects */
 input[type='text'],
-textarea{
-    width: calc(100% - 22px); /* Full width inputs minus padding and border */
-    padding: 10px; /* Padding for inputs */
-    border: 2px solid #CCCCCC; /* Light grey border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 1em; /* Standard font size */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow on inputs */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transition effect for focus and error */
-    background-color: #FAFAFA; /* Light background for inputs */
+textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 2px solid #CCCCCC;
+    border-radius: 4px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #FAFAFA;
 }
+
 .select-field {
-  
-    padding: 10px; /* Padding for inputs */
-    border: 2px solid #CCCCCC; /* Light grey border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 1em; /* Standard font size */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow on inputs */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transition effect for focus and error */
-    background-color: #FAFAFA; /* Light background for inputs */
+    padding: 10px;
+    border: 2px solid #CCCCCC;
+    border-radius: 4px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #FAFAFA;
 }
-/* Focus Styles */
+
 input[type='text']:focus,
 textarea:focus,
 .select-field:focus {
-    border-color: #007BFF; /* Change border color to blue on focus */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Increased shadow on focus */
-    background-color: #E8F0FE; /* Light blue background on focus */
-    animation: inputFocus 0.4s ease forwards; /* Animation on focus */
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    background-color: #E8F0FE;
+    animation: inputFocus 0.4s ease forwards;
 }
 
 @keyframes inputFocus {
@@ -75,18 +69,17 @@ textarea:focus,
         transform: scale(1);
     }
     to {
-        transform: scale(1.02); /* Slight scale increase */
+        transform: scale(1.02);
     }
 }
 
-/* Error Indication Styles */
 input[type='text'].error,
 textarea.error,
 .select-field.error {
-    border-color: #FF3D00; /* Red border color for error */
-    box-shadow: 0 0 5px rgba(255, 61, 0, 0.5); /* Red glow effect for error indication */
-    background-color: #FFE9E5; /* Light red background for error */
-    animation: shake 0.5s ease; /* Shake animation on error */
+    border-color: #FF3D00;
+    box-shadow: 0 0 5px rgba(255, 61, 0, 0.5);
+    background-color: #FFE9E5;
+    animation: shake 0.5s ease;
 }
 
 @keyframes shake {
@@ -97,93 +90,85 @@ textarea.error,
     100% { transform: translateX(0); }
 }
 
-/* Textarea Styles */
 textarea {
-    resize: vertical; /* Allow vertical resizing only */
+    resize: vertical;
 }
 
-/* Dropdown Styles */
 .select-field {
-    position: relative; /* Position relative for the dropdown */
+    position: relative;
 }
 
 .select-field .react-select__control {
-    width: 100%; /* Full width control */
-    padding: 10px; /* Padding for control */
-    border: 2px solid #CCCCCC; /* Light grey border */
-    border-radius: 4px; /* Rounded corners */
-    transition: border-color 0.3s; /* Transition for border color */
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #CCCCCC;
+    border-radius: 4px;
+    transition: border-color 0.3s;
 }
 
 .select-field .react-select__control.error {
-    border-color: #FF3D00; /* Red border for error */
-    animation: shake 0.5s ease; /* Shake animation */
+    border-color: #FF3D00;
+    animation: shake 0.5s ease;
 }
 
 .select-field .react-select__menu {
-    max-height: 200px; /* Limit the dropdown height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    border: 1px solid #CCCCCC; /* Border for dropdown */
-    border-radius: 4px; /* Rounded corners for dropdown */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow for dropdown */
-    z-index: 1000; /* Ensure it's above other elements */
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
-/* Dropdown Items */
 .select-field .react-select__option {
-    padding: 10px; /* Padding for items */
-    cursor: pointer; /* Pointer on hover */
-    transition: background-color 0.3s; /* Transition for background */
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .select-field .react-select__option:hover {
-    background-color: #E8F0FE; /* Highlight item on hover */
+    background-color: #E8F0FE;
 }
 
-/* Submit Button Styles */
 button[type='submit'] {
-    width: 100%; /* Full width button */
-    padding: 10px; /* Padding for button */
-    background-color: #FF3D00; /* KTM Orange */
-    color: #FFFFFF; /* White text */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 1.2em; /* Larger font size */
-    cursor: pointer; /* Pointer on hover */
-    transition: background 0.3s, transform 0.3s; /* Smooth background transition and scale on hover */
+    width: 100%;
+    padding: 10px;
+    background-color: #FF3D00;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
 }
 
 button[type='submit']:hover {
-    background-color: #FF6F00; /* Darker orange on hover */
-    transform: scale(1.05); /* Slight scale increase on hover */
+    background-color: #FF6F00;
+    transform: scale(1.05);
 }
 
-/* Button Accessibility */
 button[type='submit']:focus {
-    outline: 2px solid #007BFF; /* Focus outline for accessibility */
-    outline-offset: 2px; /* Offset for better visibility */
+    outline: 2px solid #007BFF;
+    outline-offset: 2px;
 }
 
-/* Error Message Styles */
 p.error-message {
-    margin: 5px 0; /* Space above and below error messages */
-    color: red; /* Red color for error messages */
-    font-weight: bold; /* Bold error messages */
+    margin: 5px 0;
+    color: red;
+    font-weight: bold;
 }
 
-/* Placeholder Styles */
 input::placeholder,
 textarea::placeholder {
-    color: #999; /* Grey placeholder text */
-    opacity: 1; /* Ensure visibility */
+    color: #999;
+    opacity: 1;
 }
 
-/* Responsive Styles */
 @media (max-width: 600px) {
     form {
-        padding: 10px; /* Reduced padding on smaller screens */
+        padding: 10px;
     }
     h1 {
-        font-size: 1.5em; /* Adjust heading size */
+        font-size: 1.5em;
     }
 }
