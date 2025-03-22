@@ -7,7 +7,7 @@ interface CardProps {
   bugItem: any;
 }
 
-const Card: React.FC<CardProps> = ({ issueType, summary, bugItem }) => {
+const Card: React.FC<CardProps> = ({ issueType, summary, bugItem }) => {  
   return (
     <StyledCard>
       <div className="hover_color_bubble" />
@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ issueType, summary, bugItem }) => {
         </div>
 
         {/* Issue Type */}
-        <h3 className="issue_type">{bugItem.issueType.value}</h3>
+        <h3 className="issue_type">{`${bugItem.issueType.value} - #${bugItem.bugId}`}</h3>
 
         {/* Reporter and Assignee */}
         <div className="bottom_section">

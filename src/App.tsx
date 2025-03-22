@@ -5,6 +5,8 @@ import BugDashBoard from './components/BugDashboard';
 import BugStatusUpdate from './components/BugStatusUpdate';
 import CreateBug from './components/CreateBug';
 import Navbar from './NavBar';
+import { Analytics } from "@vercel/analytics/react";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/bugStatusUpdate/:bugID" element={< BugStatusUpdate />} />
         <Route path="/createBug" element={< CreateBug />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
