@@ -1,65 +1,82 @@
-import React from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import Select from 'react-select';
-import CreatableSelect from 'react-select/creatable';
-import styled from 'styled-components';
-import { UPDATEBUG } from '../Redux/BugDataSlice';
+import React from "react";
+import { Controller, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
+import styled from "styled-components";
+import { UPDATEBUG } from "../Redux/BugDataSlice";
 
 interface ModalContentPopUpProps {
   selectedCardDetail: any;
   closeModelPopUp: () => void;
 }
 
-const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetail, closeModelPopUp }) => {
+const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({
+  selectedCardDetail,
+  closeModelPopUp,
+}) => {
   const dispatch = useDispatch();
   console.log(selectedCardDetail.bugId);
 
-  const { control, handleSubmit, formState: { errors } } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data: any) => {
-    console.log(data, 'datadata');
+    console.log(data, "datadata");
 
-    dispatch(UPDATEBUG({ ...data, status: data.status.value, bugId: selectedCardDetail.bugId }));
+    dispatch(
+      UPDATEBUG({
+        ...data,
+        status: data.status.value,
+        bugId: selectedCardDetail.bugId,
+      })
+    );
     closeModelPopUp();
   };
 
   const reporterOptions = [
-    { value: 'alice', label: 'Alice Johnson' },
-    { value: 'bob', label: 'Bob Smith' },
-    { value: 'charlie', label: 'Charlie Brown' },
-    { value: 'diana', label: 'Diana Prince' },
-    { value: 'edward', label: 'Edward Elric' },
-    { value: 'fiona', label: 'Fiona Gallagher' },
-    { value: 'george', label: 'George Clooney' },
+    { value: "alice", label: "Alice Johnson" },
+    { value: "bob", label: "Bob Smith" },
+    { value: "charlie", label: "Charlie Brown" },
+    { value: "diana", label: "Diana Prince" },
+    { value: "edward", label: "Edward Elric" },
+    { value: "fiona", label: "Fiona Gallagher" },
+    { value: "george", label: "George Clooney" },
   ];
 
   const labelOptions = [
-    { value: 'none', label: 'None' },
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' }
+    { value: "none", label: "None" },
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
   ];
 
   const assigneeOptions = [
-    { value: 'John', label: 'John Doe' },
-    { value: 'Mary', label: 'Mary Jane' },
-    { value: 'Sam', label: 'Sam Miller' },
-    { value: 'Tom', label: 'Tom Anderson' },
-    { value: 'Alice', label: 'Alice Cooper' },
-    { value: 'Bob', label: 'Bob Harris' },
-    { value: 'Kate', label: 'Kate Smith' }
+    { value: "John", label: "John Doe" },
+    { value: "Mary", label: "Mary Jane" },
+    { value: "Sam", label: "Sam Miller" },
+    { value: "Tom", label: "Tom Anderson" },
+    { value: "Alice", label: "Alice Cooper" },
+    { value: "Bob", label: "Bob Harris" },
+    { value: "Kate", label: "Kate Smith" },
   ];
 
   const statusTypes = [
-    { value: 'open', label: 'Open' },
-    { value: 'inProgress', label: 'In Progress' },
-    { value: 'resolved', label: 'Resolved' },
-    { value: 'closed', label: 'Closed' },
+    { value: "open", label: "Open" },
+    { value: "inProgress", label: "In Progress" },
+    { value: "resolved", label: "Resolved" },
+    { value: "closed", label: "Closed" },
   ];
 
   return (
-    <ModalContent>
-      <h3>Bug ID: {selectedCardDetail.bugId}</h3>
+    <ModalContent onClick={(e) => e.stopPropagation()}>
+      <div className="modal-header">
+        <h3 className="modal-title">Bug ID: {selectedCardDetail.bugId}</h3>
+        <img onClick={closeModelPopUp} src="/icons/close.png" alt="Close Icon" className="close-icon" />
+      </div>
+
       <p className="summary">{selectedCardDetail?.summary}</p>
       <p className="description">{selectedCardDetail?.description}</p>
       <p className="issue-type">{selectedCardDetail?.issueType.value}</p>
@@ -71,7 +88,7 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
             name="assignees"
             control={control}
             defaultValue={selectedCardDetail?.assignees}
-            rules={{ required: 'At least one assignee is required' }}
+            rules={{ required: "At least one assignee is required" }}
             render={({ field: { onChange, onBlur, value, ref } }) => (
               <>
                 <Select
@@ -81,11 +98,15 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
                   maxMenuHeight={200}
                   value={value}
                   ref={ref}
-                  className={`select-field ${errors.assignees ? 'error' : ''}`}
+                  className={`select-field ${errors.assignees ? "error" : ""}`}
                   placeholder="Select assignee"
                 />
                 {errors.assignees && (
-                  <ErrorMessage>{typeof errors.assignees.message === 'string' ? errors.assignees.message : 'Error'}</ErrorMessage>
+                  <ErrorMessage>
+                    {typeof errors.assignees.message === "string"
+                      ? errors.assignees.message
+                      : "Error"}
+                  </ErrorMessage>
                 )}
               </>
             )}
@@ -98,7 +119,7 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
             name="reporters"
             control={control}
             defaultValue={selectedCardDetail?.reporters}
-            rules={{ required: 'At least one reporter is required' }}
+            rules={{ required: "At least one reporter is required" }}
             render={({ field: { onChange, onBlur, value, ref } }) => (
               <>
                 <Select
@@ -107,11 +128,15 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
                   onBlur={onBlur}
                   value={value}
                   ref={ref}
-                  className={`select-field ${errors.reporters ? 'error' : ''}`}
+                  className={`select-field ${errors.reporters ? "error" : ""}`}
                   placeholder="Select a reporter"
                 />
                 {errors.reporters && (
-                  <ErrorMessage>{typeof errors.reporters.message === 'string' ? errors.reporters.message : 'Error'}</ErrorMessage>
+                  <ErrorMessage>
+                    {typeof errors.reporters.message === "string"
+                      ? errors.reporters.message
+                      : "Error"}
+                  </ErrorMessage>
                 )}
               </>
             )}
@@ -124,7 +149,7 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
             name="label"
             control={control}
             defaultValue={selectedCardDetail?.label}
-            rules={{ required: 'At least one option is required' }}
+            rules={{ required: "At least one option is required" }}
             render={({ field }) => (
               <>
                 <CreatableSelect
@@ -133,10 +158,14 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
                   isClearable={false}
                   isMulti={true}
                   placeholder="Select or type to create new..."
-                  className={`select-field ${errors.label ? 'error' : ''}`}
+                  className={`select-field ${errors.label ? "error" : ""}`}
                 />
                 {errors.label && (
-                  <ErrorMessage>{typeof errors.label.message === 'string' ? errors.label.message : 'Error'}</ErrorMessage>
+                  <ErrorMessage>
+                    {typeof errors.label.message === "string"
+                      ? errors.label.message
+                      : "Error"}
+                  </ErrorMessage>
                 )}
               </>
             )}
@@ -146,24 +175,23 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({ selectedCardDetai
         <FormGroup>
           <label>Status</label>
           <Controller
-            defaultValue={{ value: selectedCardDetail?.status, label: selectedCardDetail?.status }}
-            name={'status'}
+            defaultValue={{
+              value: selectedCardDetail?.status,
+              label: selectedCardDetail?.status,
+            }}
+            name={"status"}
             control={control}
             render={({ field: { onChange, onBlur, value, ref } }) => (
-              <Select
-                value={value}
-                onChange={onChange}
-                options={statusTypes}
-              />
+              <Select value={value} onChange={onChange} options={statusTypes} />
             )}
           />
         </FormGroup>
 
-        <SubmitButton type='submit'>Submit</SubmitButton>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </form>
     </ModalContent>
   );
-}
+};
 
 const ModalContent = styled.div`
   background: #ffffff;
@@ -173,10 +201,29 @@ const ModalContent = styled.div`
   width: 90%;
   text-align: left;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  
+
   h3 {
-    color: #FF6F20; /* KTM orange color */
+    color: #ff6f20; /* KTM orange color */
     margin-top: 0;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative; 
+  }
+  
+  .modal-title{
+    margin:0
+  }
+
+  .close-icon {
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px; 
   }
 
   p {
@@ -217,7 +264,7 @@ const ErrorMessage = styled.p`
 const SubmitButton = styled.button`
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #FF6F20; /* KTM orange color */
+  background-color: #ff6f20; /* KTM orange color */
   color: white;
   border: none;
   border-radius: 4px;
@@ -225,7 +272,7 @@ const SubmitButton = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #E65C0D; /* Darker orange */
+    background-color: #e65c0d; /* Darker orange */
   }
 `;
 

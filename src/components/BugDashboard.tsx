@@ -130,7 +130,7 @@ const BugDashboard = () => {
       </div>
 
       {isModalOpen && selectedCard && (
-        <ModalOverlay>
+        <ModalOverlay onClick={handleCloseModal}>
           <ModalContentPopUp
             selectedCardDetail={selectedCard}
             closeModelPopUp={handleCloseModal}
