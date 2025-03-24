@@ -36,7 +36,9 @@ const BugDashboard = () => {
           {" "}
           {/* Tomato color for Open */}
           <span className="status-circle"></span>
-          Open
+          {statusGroup?.open?.length
+            ? `Open ${statusGroup?.open?.length}`
+            : "Open"}
         </StatusHeader>
 
         {statusGroup?.open.map((item: any) => (
@@ -61,7 +63,9 @@ const BugDashboard = () => {
           {" "}
           {/* Orange color for In Progress */}
           <span className="status-circle"></span>
-          In Progress
+          {statusGroup?.inProgress?.length
+            ? `In Progress ${statusGroup?.inProgress?.length}`
+            : "In Progress"}
         </StatusHeader>
         {statusGroup?.inProgress.map((item: any) => (
           <CardContainer key={item.id} onClick={() => handleCardClick(item)}>
@@ -85,7 +89,9 @@ const BugDashboard = () => {
           {" "}
           {/* LimeGreen color for Resolved */}
           <span className="status-circle"></span>
-          Resolved
+          {statusGroup?.resolved?.length
+            ? `Resolved ${statusGroup?.resolved?.length}`
+            : "Resolved"}
         </StatusHeader>
         {statusGroup?.resolved.map((item: any) => (
           <CardContainer key={item.id} onClick={() => handleCardClick(item)}>
@@ -109,7 +115,9 @@ const BugDashboard = () => {
           {" "}
           {/* SteelBlue color for Closed */}
           <span className="status-circle"></span>
-          Closed
+          {statusGroup?.closed?.length
+            ? `Closed ${statusGroup?.closed?.length}`
+            : "Closed"}
         </StatusHeader>
         {statusGroup?.closed.map((item: any) => (
           <CardContainer key={item.id} onClick={() => handleCardClick(item)}>
