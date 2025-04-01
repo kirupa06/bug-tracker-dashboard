@@ -9,7 +9,7 @@ import { ADDBUG, INCREMENTBUGID } from '../Redux/BugDataSlice';
 
 const CreateBug = () => {
     const { control, register, handleSubmit, formState: { errors } } = useForm({ mode: 'all' });
-    const navigate = useNavigate(); // Initialize the navigate function
+    const navigate = useNavigate(); 
     const dispatch = useDispatch()
     const bugIDinfo = useSelector((state: any) => state.BugInfo.bugId)
     const issueTypes = [
