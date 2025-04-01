@@ -56,7 +56,6 @@ const CreateBug = () => {
 
 
     const onSubmit = (data: any) => {
-        console.log(data, 'Submitted Data');
 
         dispatch(ADDBUG({ ...data, bugId: bugIDinfo, status: 'open' }))
         dispatch(INCREMENTBUGID())
