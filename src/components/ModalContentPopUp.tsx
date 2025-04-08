@@ -24,7 +24,6 @@ const ModalContentPopUp: React.FC<ModalContentPopUpProps> = ({
     formState: { errors },
   } = useForm();
   const onSubmit = (data: any) => {
-    console.log(data, "datadata");
 
     dispatch(
       UPDATEBUG({
